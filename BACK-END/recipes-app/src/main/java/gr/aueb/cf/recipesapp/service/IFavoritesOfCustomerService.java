@@ -11,5 +11,5 @@ public interface IFavoritesOfCustomerService {
 
     void addFavorite(String email, RecipeDTO recipeDTO) throws EntityAlreadyExistsException;
 
-    void deleteFavorite(String email, Long recipeId) throws EntityNotFoundException;
+    void deleteFavorite(String email, Long recipeId) ;
 }

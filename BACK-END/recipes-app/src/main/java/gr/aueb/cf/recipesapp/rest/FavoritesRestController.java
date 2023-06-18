@@ -83,7 +83,7 @@ public class FavoritesRestController {
         try {
             favoritesOfCustomerService.deleteFavorite(email, recipeId);
             return ResponseEntity.ok().build();
-        } catch (EntityNotFoundException e) {
+        } catch (Exception e) {
             LoggerUtil.logError(e.getMessage());
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }

@@ -63,16 +63,8 @@ public class FavoritesOfCustomerServiceImpl implements IFavoritesOfCustomerServi
 
     @Transactional
     @Override
-    public void deleteFavorite(String email, Long recipeId) throws EntityNotFoundException {
+    public void deleteFavorite(String email, Long recipeId)  {
         Customer customer = customerRepository.findByEmail(email);
-        List<Favorite> favorites = customer.getFavorites();
-        for (Favorite favorite : favorites) {
-            if (favorite.getRecipe().getRecipeId() == recipeId) {
-                break;
-            }
-            throw new EntityNotFoundException(Favorite.class);
-        }
-
         Recipe recipe = recipeRepository.findByRecipeId(recipeId);
         customer.removeFavorite(recipe);
     }
